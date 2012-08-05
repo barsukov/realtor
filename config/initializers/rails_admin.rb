@@ -4,8 +4,8 @@
 RailsAdmin.config do |config|
 
   # If your default_local is different from :en, uncomment the following 2 lines and set your default locale here:
-   #require 'i18n'
-   #I18n.default_locale = :en
+   require 'i18n'
+   I18n.default_locale = :ru
 
   config.current_user_method { current_admin } # auto-generated
 
@@ -20,7 +20,7 @@ RailsAdmin.config do |config|
   # or for a dynamic name:
   # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
 
-  config.authorize_with :cancan
+  config.authorize_with :cancan ,AdminAbility
   #  ==> Global show view settings
   # Display empty fields in show views
   # config.compact_show_view = false
@@ -34,7 +34,7 @@ RailsAdmin.config do |config|
   config.excluded_models = [Admin]
 
   # Add models here if you want to go 'whitelist mode':
-   config.included_models = [User]
+   config.included_models = [User,Company,Revenue]
 
   # Application wide tried label methods for models' instances
   # config.label_methods << :description # Default is [:name, :title]
@@ -51,7 +51,36 @@ RailsAdmin.config do |config|
   #     end
   #   end
   # end
-  #
+  config.model Revenue do
+    list do
+      field :date
+      field :value
+    end
+    edit do
+      field :value, :string
+      field :date, :datetime
+    end
+  end
+
+   config.model Revenue do
+     list do
+       field :date
+       field :value
+     end
+     edit do
+       field :value, :string
+       field :date, :datetime
+     end
+   end
+
+   config.model User do
+     list do
+       field :name
+     end
+     edit do
+       field :name, :string
+     end
+   end
   #  ==> Model specific configuration
   # Keep in mind that *all* configuration blocks are optional.
   # RailsAdmin will try his best to provide the best defaults for each section, for each field.
@@ -106,19 +135,19 @@ RailsAdmin.config do |config|
   # config.model User do
   #   # Found associations:
   #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :email, :string 
-  #     configure :password, :password         # Hidden 
-  #     configure :password_confirmation, :password         # Hidden 
-  #     configure :reset_password_token, :string         # Hidden 
-  #     configure :reset_password_sent_at, :datetime 
-  #     configure :remember_created_at, :datetime 
-  #     configure :sign_in_count, :integer 
-  #     configure :current_sign_in_at, :datetime 
-  #     configure :last_sign_in_at, :datetime 
-  #     configure :current_sign_in_ip, :string 
-  #     configure :last_sign_in_ip, :string 
-  #     configure :created_at, :datetime 
+  #     configure :id, :integer
+  #     configure :email, :string
+  #     configure :password, :password         # Hidden
+  #     configure :password_confirmation, :password         # Hidden
+  #     configure :reset_password_token, :string         # Hidden
+  #     configure :reset_password_sent_at, :datetime
+  #     configure :remember_created_at, :datetime
+  #     configure :sign_in_count, :integer
+  #     configure :current_sign_in_at, :datetime
+  #     configure :last_sign_in_at, :datetime
+  #     configure :current_sign_in_ip, :string
+  #     configure :last_sign_in_ip, :string
+  #     configure :created_at, :datetime
   #     configure :updated_at, :datetime   #   # Sections:
   #   list do; end
   #   export do; end

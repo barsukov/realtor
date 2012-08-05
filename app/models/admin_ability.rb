@@ -1,12 +1,16 @@
-class Ability
+class AdminAbility
   include CanCan::Ability
 
   def initialize(user)
-    # Define abilities for the passed in user here. For example:
-    if user
-      can :access, :rails_admin
-      can :manage, :all
-    end
+    can :access, :rails_admin # needed to access RailsAdmin
+    can :dashboard            # dashboard access
+    # Performed checks for `collection` scoped actions:
+    can :index, :all         # included in :read
+    can :new, :all     # included in :create
+    cannot :export, :all
+    cannot :history, :all              # for HistoryIndex
+    can :destroy, :all       # for BulkDelete
+  end
     # The first argument to `can` is the action you are giving the user permission to do.
     # If you pass :manage it will apply to every action. Other common actions here are
     # :read, :create, :update and :destroy.
@@ -21,4 +25,4 @@ class Ability
     #
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
   end
-end
+
