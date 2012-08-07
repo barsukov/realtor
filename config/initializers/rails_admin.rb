@@ -53,23 +53,38 @@ RailsAdmin.config do |config|
   # end
   config.model Revenue do
     list do
-      field :date
+      field :date do
+        strftime_format  "%Y-%M-%d"
+        filterable false
+      end
+      field :value  do
+        filterable false
+      end
+    end
+    create do
+      field :date do
+        strftime_format "%Y-%M-%d"
+      end
       field :value
     end
     edit do
       field :value, :string
-      field :date, :datetime
+      field :date do
+        strftime_format  "%Y-%M-%d"
+      end
     end
   end
 
-   config.model Revenue do
+   config.model Company do
      list do
-       field :date
-       field :value
+       field :name do
+         filterable false
+       end
      end
      edit do
-       field :value, :string
-       field :date, :datetime
+       field :name do
+         filterable false
+       end
      end
    end
 

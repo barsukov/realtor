@@ -8,6 +8,7 @@ class AdminAbility
     can :index, :all         # included in :read
     can :new, :all     # included in :create
     cannot :export, :all
+    cannot :filters ,:all
     cannot :history, :all              # for HistoryIndex
     can :destroy, :all       # for BulkDelete
   end
