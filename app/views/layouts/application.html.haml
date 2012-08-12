@@ -14,13 +14,12 @@
   %body
     %header.navbar.navbar-fixed-top
       %nav.navbar-inner
-        .container
-          = render 'layouts/navigation'
+        .container-fluid
+          =render :partial =>  'layouts/navigation'
     #main{:role => "main"}
       .container
         .content
           .row
             .span12
-              = render 'layouts/messages'
               = yield
           %footer

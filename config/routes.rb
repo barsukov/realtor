@@ -1,6 +1,8 @@
 RailsAdmin::Application.routes.draw do
   mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
 
+  root :to => 'main#index'
+
   devise_for :admins
 
   devise_for :users

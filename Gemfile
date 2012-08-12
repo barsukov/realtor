@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'rails_admin'
 gem 'haml-rails'
 gem 'cancan'
+gem 'paperclip'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

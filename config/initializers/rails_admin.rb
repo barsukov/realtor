@@ -34,7 +34,7 @@ RailsAdmin.config do |config|
   config.excluded_models = [Admin]
 
   # Add models here if you want to go 'whitelist mode':
-   config.included_models = [User,Company,Revenue]
+   config.included_models = [User,Company,Revenue,Price]
 
   # Application wide tried label methods for models' instances
   # config.label_methods << :description # Default is [:name, :title]
@@ -52,12 +52,16 @@ RailsAdmin.config do |config|
   #   end
   # end
   config.model Revenue do
+    label I18n.t('revenue.revenues')
+    #label_plural I18n.t('name')
     list do
       field :date do
+     #   label(I18n.t('common.date'))
         strftime_format  "%Y-%M-%d"
         filterable false
       end
       field :value  do
+        label(I18n.t('common.value'))
         filterable false
       end
     end
@@ -76,6 +80,8 @@ RailsAdmin.config do |config|
   end
 
    config.model Company do
+   # label I18n.t('company.singular')
+    # label_plural I18n.t('company.plural')
      list do
        field :name do
          filterable false
@@ -89,6 +95,8 @@ RailsAdmin.config do |config|
    end
 
    config.model User do
+    # label I18n.t('user.singular')
+     #label_plural I18n.t('user.plural')
      list do
        field :name
      end
