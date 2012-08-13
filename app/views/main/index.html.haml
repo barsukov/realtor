@@ -2,18 +2,11 @@
 
 %table
   %tr
-    %th= I18n.t('articles.title')
-    %th
-    %th
-    %th
+    %th= I18n.t('company.name')
+    %th=I18n.t('company.value')
 
-  - @articles.each do |article|
+  - @companies.each do |company|
     %tr
-      %td= article.title
-      %td= link_to(I18n.t('show'), admin_article_path(article))
-      %td= link_to I18n.t('edit'), edit_admin_article_path(article)
-      %td= link_to I18n.t('destroy'), admin_article_path(article), :confirm => I18n.t('articles.delete_confirmation'), :method => :delete
-
+      %td= company.name
+      %td= company.values
 %br
-
-= link_to I18n.t('articles.create_new_article'), new_admin_article_path

@@ -7,6 +7,7 @@ class AdminAbility
     # Performed checks for `collection` scoped actions:
     can :index, :all         # included in :read
     can :new, :all     # included in :create
+    can :update, :all
     cannot :export, :all
     cannot :filters ,:all
     cannot :history, :all              # for HistoryIndex

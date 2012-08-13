@@ -49,7 +49,8 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: rails_admin_production
+  database: barsukov_realt30
+  host:   postgresql2.locum.ru
   pool: 5
-  username: realtor
-  password:
+  username: barsukov_realt30
+  password: vqQJuCh2

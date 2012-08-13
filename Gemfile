@@ -40,5 +40,6 @@ gem 'paperclip'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-
+gem 'capistrano'
+gem 'unicorn'
 gem "devise"

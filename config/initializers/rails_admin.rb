@@ -51,13 +51,19 @@ RailsAdmin.config do |config|
   #     end
   #   end
   # end
+
+   config.model Price do
+     label I18n.t('prices.price')
+     label_plural I18n.t('prices.price')
+   end
+
   config.model Revenue do
-    label I18n.t('revenue.revenues')
-    #label_plural I18n.t('name')
+    label I18n.t('revenue.revenue')
+    label_plural I18n.t('revenue.revenues')
     list do
       field :date do
-     #   label(I18n.t('common.date'))
-        strftime_format  "%Y-%M-%d"
+        label(I18n.t('common.date'))
+        strftime_format  "%Y-%m-%d"
         filterable false
       end
       field :value  do
@@ -67,41 +73,46 @@ RailsAdmin.config do |config|
     end
     create do
       field :date do
-        strftime_format "%Y-%M-%d"
+        strftime_format "%Y-%m-%d"
       end
-      field :value
+      field :value , :integer
+      field :company
     end
     edit do
-      field :value, :string
+      field :value, :integer
       field :date do
-        strftime_format  "%Y-%M-%d"
+        strftime_format  "%Y-%m-%d"
       end
     end
   end
 
    config.model Company do
-   # label I18n.t('company.singular')
-    # label_plural I18n.t('company.plural')
+    label I18n.t('company.singular')
+    label_plural I18n.t('company.plural')
      list do
        field :name do
          filterable false
        end
      end
-     edit do
-       field :name do
-         filterable false
-       end
+    create do
+      field :revenues do
+        orderable false
+      end
+      field :name do
+        filterable false
+      end
+    end
      end
-   end
+
 
    config.model User do
-    # label I18n.t('user.singular')
-     #label_plural I18n.t('user.plural')
+    label I18n.t('user.singular')
+    label_plural I18n.t('user.plural')
      list do
-       field :name
+       field :email
      end
      edit do
-       field :name, :string
+       field :email, :string
      end
    end
   #  ==> Model specific configuration
