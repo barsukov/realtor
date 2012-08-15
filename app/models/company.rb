@@ -7,7 +7,7 @@ class Company < ActiveRecord::Base
 
   accepts_nested_attributes_for :revenues, :allow_destroy => true
 
-  attr_accessible :revenue_ids
+  attr_accessible :revenue_ids,:user_id
 
   scope :get_all_values_by_date, lambda {|date|  joins(:revenues).where('revenues.company_id = ? AND revenues.updated_at = ?', self.id , date)}
 

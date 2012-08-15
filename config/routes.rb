@@ -3,7 +3,7 @@ RailsAdmin::Application.routes.draw do
 
   root :to => 'main#index'
 
-  devise_for :admins
+  devise_for :admins , :skip => :registrations
 
   devise_for :users
 

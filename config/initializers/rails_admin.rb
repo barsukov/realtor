@@ -90,11 +90,22 @@ RailsAdmin.config do |config|
     label I18n.t('company.singular')
     label_plural I18n.t('company.plural')
      list do
+       field :user do
+       filterable false
+     end
        field :name do
          filterable false
        end
      end
     create do
+      field :revenues do
+        orderable false
+      end
+      field :name do
+        filterable false
+      end
+    end
+    edit do
       field :revenues do
         orderable false
       end
@@ -111,8 +122,15 @@ RailsAdmin.config do |config|
      list do
        field :email
      end
+    create do
+      field :email
+      field :password, :password
+      field :password_confirmation , :password
+    end
      edit do
-       field :email, :string
+         field :email
+         field :password, :password
+         field :password_confirmation , :password
      end
    end
   #  ==> Model specific configuration

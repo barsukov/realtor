@@ -16,10 +16,11 @@
       %nav.navbar-inner
         .container-fluid
           =render :partial =>  'layouts/navigation'
-    #main{:role => "main"}
-      .container
-        .content
-          .row
-            .span12
-              = yield
-          %footer
+    .container
+      .row-fluid
+        .span8
+          = yield
+        .span4
+          .well.sidebar-nav
+            =render :partial =>  'shared/price'
+    %footer

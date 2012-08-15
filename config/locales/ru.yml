@@ -2,10 +2,16 @@
 ru:
   revenue:
       revenues: "Продажи"
-      singular: "Сделка"
+      revenue: "Сделка"
   name: 'имя'
+  activerecord:
+      attributes:
+          user:
+              email: "Email address in Japanese"
+              password: "Password in Japanese"
+              password_confirmation: "Password confirmation in Japanese"
   common:
-      statistics: "Статистика продаж по компании "
+      statistics: "Статистика продаж по компании %{name}"
       date: 'Дата'
       value: 'Значение'
       name: 'Имя'
@@ -23,6 +29,7 @@ ru:
   prices:
       price: "Прайс"
       prices: "Прайсы"
+      download: "Скачать последний прайс за %{updated_at}"
   date:
     abbr_day_names:
     - Вс

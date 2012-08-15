@@ -1,5 +1,3 @@
 !!!
-- if user_signed_in?
-  %ul.nav
-    %li
-      =I18n.t('common.statistics')
+- if user_signed_in? && @company
+  = link_to(t('common.statistics',:name => @company.name), root_path,:class=>"brand")
