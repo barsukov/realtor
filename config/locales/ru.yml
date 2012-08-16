@@ -15,8 +15,9 @@ ru:
       date: 'Дата'
       value: 'Значение'
       name: 'Имя'
-
+      place: 'Место'
   company:
+       main_list: 'Рейтинг продаж компаний за %{year} год'
        list: 'Список компаний'
        plural: "Компании"
        singular: "Компания"

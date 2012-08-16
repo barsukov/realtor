@@ -21,6 +21,5 @@
         .span8
           = yield
         .span4
-          .well.sidebar-nav
-            =render :partial =>  'shared/price'
+          = yield(:right_sidebar)
     %footer

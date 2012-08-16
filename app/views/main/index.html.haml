@@ -1,12 +1,16 @@
-%h1= I18n.t('company.list')
-
-%table
-  %tr
-    %th= I18n.t('company.name')
-    %th=I18n.t('company.value')
-
-  - @companies.each do |company|
+=content_for :right_sidebar do
+  .well.sidebar-nav
+    =render :partial =>  'shared/price'
+%h1= I18n.t('company.main_list',:year => Time.now.year)
+%table{ :class => 'table table-bordered'}
+  %thead
     %tr
-      %td= company.name
-      %td= company.values
-%br
+      %th= I18n.t('common.place')
+      %th= I18n.t('company.name')
+      %th=I18n.t('company.value')
+  %tbody
+    - @companies.each_with_index do |company,index|
+      %tr
+        %td= index +1
+        %td= company.name
+        %td= number_to_percentage(company.percent, :precision => 0)
