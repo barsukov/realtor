@@ -1,7 +1,7 @@
 class Company < ActiveRecord::Base
   attr_accessible :name
-  belongs_to :user
-  has_many :revenues
+  belongs_to :user ,:dependent => :destroy,:inverse_of => :company
+  has_many :revenues, :dependent => :destroy,:inverse_of => :company
 
   attr_accessible :revenues_attributes, :allow_destroy => true
 

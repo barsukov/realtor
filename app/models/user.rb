@@ -5,9 +5,16 @@ class User < ActiveRecord::Base
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :company_id , :presence => true
-  has_one :company
+  has_one :company   , :dependent => :destroy , :inverse_of => :user
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me ,:company_id
+  accepts_nested_attributes_for :company , :allow_destroy => true
+
+  def company_id
+    self.company.try :id
+  end
+  def company_id(id)
+    self.company = Company.find_by_id(id)
+  end
   # attr_accessible :title, :body
 end

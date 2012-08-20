@@ -83,6 +83,7 @@ RailsAdmin.config do |config|
       field :date do
         strftime_format  "%Y-%m-%d"
       end
+      field :company
     end
   end
 
@@ -101,6 +102,9 @@ RailsAdmin.config do |config|
       field :revenues do
         orderable false
       end
+      field :user do
+       visible false
+      end
       field :name do
         filterable false
       end
@@ -108,6 +112,9 @@ RailsAdmin.config do |config|
     edit do
       field :revenues do
         orderable false
+      end
+      field :user do
+        visible false
       end
       field :name do
         filterable false

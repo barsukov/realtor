@@ -1,8 +1,9 @@
 class Revenue < ActiveRecord::Base
    attr_accessible :value, :date ,:company_id
-   belongs_to :company
-   validates :date,:value ,:company_id, :presence => true
+   belongs_to :company, :inverse_of => :revenues
+   validates :date,:value ,:company, :presence => true
    validates :value, :numericality => { :only_integer => true, :greater_than => 0 }
+
 
    scope :by_company, lambda{|company_id| where(:company_id => company_id)}
 
