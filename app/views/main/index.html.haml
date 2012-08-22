@@ -1,6 +1,7 @@
 =content_for :right_sidebar do
   .well.sidebar-nav
     =render :partial =>  'shared/price'
+  =link_to image_tag('logo_small_red.gif'), "http://www.dom2a.ru"
 %h1= I18n.t('company.main_list',:year => Time.now.year)
 %table{ :class => 'table table-bordered'}
   %thead
@@ -13,4 +14,4 @@
       %tr
         %td= index +1
         %td= company.name
-        %td= number_to_percentage(company.percent, :precision => 0)
+        %td= number_to_percentage(company.percent, :precision => 2)
