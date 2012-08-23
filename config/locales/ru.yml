@@ -22,13 +22,17 @@ ru:
        plural: "Компании"
        singular: "Компания"
        name: 'Имя компании'
+       realtor: 'Агентство недвижимости'
        value: 'Процент продаж'
   user:
        plural: "Пользователи"
        singular: "Пользователь"
+       last_sighn_in: 'Дата последнего визита'
        email: 'Адрес электронной почты'
+       password: 'Пароль'
   prices:
       price: "Прайс"
+      current_price: "Текущий прайс"
       main: 'Скачать все прайсы одним файлом'
       prices: "Прайсы"
       download: "Скачать последний прайс за %{updated_at}"

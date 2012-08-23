@@ -54,35 +54,40 @@ RailsAdmin.config do |config|
 
    config.model Price do
      label I18n.t('prices.price')
+     configure :current_price do
+       label(I18n.t('prices.current_price'))
+       filterable false
+     end
+     list do
+       field :current_price
+     end
      label_plural I18n.t('prices.price')
    end
 
   config.model Revenue do
     label I18n.t('revenue.revenue')
     label_plural I18n.t('revenue.revenues')
+    configure :date do
+      label(I18n.t('common.date'))
+      strftime_format  "%Y-%m-%d"
+      filterable false
+    end
+    configure :value do
+      label(I18n.t('common.value'))
+      filterable false
+    end
     list do
-      field :date do
-        label(I18n.t('common.date'))
-        strftime_format  "%Y-%m-%d"
-        filterable false
-      end
-      field :value  do
-        label(I18n.t('common.value'))
-        filterable false
-      end
+      field :date
+      field :value
     end
     create do
-      field :date do
-        strftime_format "%Y-%m-%d"
-      end
+      field :date
       field :value , :integer
       field :company
     end
     edit do
       field :value, :integer
-      field :date do
-        strftime_format  "%Y-%m-%d"
-      end
+      field :date
       field :company
     end
   end
@@ -90,44 +95,45 @@ RailsAdmin.config do |config|
    config.model Company do
     label I18n.t('company.singular')
     label_plural I18n.t('company.plural')
+    configure :name do
+      label I18n.t('company.name')
+      filterable false
+    end
+    configure :revenues do
+      orderable false
+    end
      list do
-       field :user do
-       filterable false
-     end
-       field :name do
-         filterable false
-       end
+       field :name
      end
     create do
-      field :revenues do
-        orderable false
-      end
-      field :user do
-       visible false
-      end
-      field :name do
-        filterable false
-      end
+      field :revenues
+      field :name
     end
     edit do
-      field :revenues do
-        orderable false
-      end
-      field :user do
-        visible false
-      end
-      field :name do
-        filterable false
-      end
+      field :revenues
+      field :name
     end
      end
 
 
    config.model User do
-    label I18n.t('user.singular')
-    label_plural I18n.t('user.plural')
+     label I18n.t('user.singular')
+     label_plural I18n.t('user.plural')
+     configure :email do
+       label I18n.t('user.email')
+     end
+     configure :password do
+       label I18n.t('user.password')
+     end
+     configure :last_sign_in_at do
+       label(I18n.t('user.last_sighn_in'))
+       strftime_format  "%Y-%m-%d"
+       filterable false
+     end
      list do
        field :email
+       field :last_sign_in_at do
+       end
      end
     create do
       field :email
