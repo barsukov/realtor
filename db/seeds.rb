@@ -6,3 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Admin.create(email: 'krasstroy@dom2a.ru',password: 'sellmyhouse2012')
+UnderTableText(under_text: '*Рейтинг составлен на основе статистики продаж агентствами недвижимости объектов группы строительных компаний «Красстрой» ')
+UnderTableText(under_text: '**В скобках указано место в рейтинге после предыдущего обновления ')
+StaticContent(title_table: 'Рейтинг агентств недвижимости в 2012 году')

@@ -11,11 +11,18 @@ ru:
               password: "Password in Japanese"
               password_confirmation: "Password confirmation in Japanese"
   common:
+      krasstroy: 'Группа строительных компаний «Красстрой».'
       statistics: "Статистика продаж по компании %{name}"
       date: 'Дата'
       value: 'Значение'
       name: 'Имя'
       place: 'Место'
+      static_content: 'Редактирование текста'
+  static_content:
+      static_content: 'Статический контент'
+      title: 'Заголовок таблицы'
+      text_under_table: 'Текст под таблицей'
+      static_content: 'Статический контент'
   company:
        main_list: 'Рейтинг продаж компаний за %{year} год'
        list: 'Список компаний'

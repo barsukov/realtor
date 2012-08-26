@@ -34,7 +34,7 @@ RailsAdmin.config do |config|
   config.excluded_models = [Admin]
 
   # Add models here if you want to go 'whitelist mode':
-   config.included_models = [User,Company,Revenue,Price]
+   config.included_models = [User,Company,Revenue,Price,StaticContent,UnderTableText]
 
   # Application wide tried label methods for models' instances
   # config.label_methods << :description # Default is [:name, :title]
@@ -51,6 +51,33 @@ RailsAdmin.config do |config|
   #     end
   #   end
   # end
+   config.model StaticContent do
+     navigation_label I18n.t('common.static_content')
+     label_plural I18n.t('static_content.static_content')
+     label I18n.t('static_content.static_content')
+     configure :title_table do
+       label(I18n.t('static_content.title'))
+       filterable false
+     end
+     list do
+       field :title_table
+     end
+     weight -1
+   end
+
+   config.model UnderTableText do
+     navigation_label  I18n.t('common.static_content')
+     label I18n.t('static_content.text_under_table')
+     label_plural I18n.t('static_content.text_under_table')
+     configure :under_text do
+       label(I18n.t('static_content.text_under_table'))
+       filterable false
+     end
+     list do
+       field :under_text
+     end
+     weight -1
+   end
 
    config.model Price do
      label I18n.t('prices.price')
