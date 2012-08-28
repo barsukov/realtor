@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120805061252) do
+ActiveRecord::Schema.define(:version => 20120827165518) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -33,8 +33,21 @@ ActiveRecord::Schema.define(:version => 20120805061252) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "user_id"
+    t.integer  "last_place"
+    t.integer  "current_place"
+  end
+
+  create_table "prices", :force => true do |t|
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.string   "current_price_file_name"
+    t.string   "current_price_content_type"
+    t.integer  "current_price_file_size"
+    t.datetime "current_price_updated_at"
+    t.date     "date"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -52,9 +65,22 @@ ActiveRecord::Schema.define(:version => 20120805061252) do
 
   create_table "revenues", :force => true do |t|
     t.integer  "value",      :default => 0
-    t.datetime "date"
+    t.date     "date"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
+    t.integer  "company_id"
+  end
+
+  create_table "static_contents", :force => true do |t|
+    t.text     "title_table"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "under_table_texts", :force => true do |t|
+    t.text     "under_text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

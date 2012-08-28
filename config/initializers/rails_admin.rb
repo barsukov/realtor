@@ -85,8 +85,13 @@ RailsAdmin.config do |config|
        label(I18n.t('prices.current_price'))
        filterable false
      end
+     configure :date do
+       label(I18n.t('common.date'))
+       filterable false
+     end
      list do
        field :current_price
+       field :date
      end
      label_plural I18n.t('prices.price')
    end

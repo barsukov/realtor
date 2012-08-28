@@ -1,12 +1,12 @@
 class MainController < ApplicationController
 
   def index
-    @companies = Company.all
-    @companies = @companies.sort_by { |h| h.percent}.reverse!
+    @companies = Company.ordered_by_place
     @static_content = StaticContent.first
     @under_table_text = UnderTableText.all
 #    @company =  Company.find_by_user_id(current_user)
     @price = Price.last
+    @price_date = @price.date.strftime('%Y.%m.%d') unless @price.date.nil?
     respond_to do |format|
       format.html
     end

@@ -10,7 +10,7 @@ class Company < ActiveRecord::Base
   attr_accessible :revenue_ids,:user_id
 
   #scope :get_all_revenue_values, where(Revenue.arel_table[:company_id].eq(arel_table[:id]).and.Revenue.arel_table[:updated_at].gteq(1.year.ago))
-
+   scope :ordered_by_place , order(:current_place)
   #scope :get_all_values_by_date, lambda {|date|  joins(:revenues).where('revenues.company_id = ? AND revenues.updated_at = ?', self.id , date)}
 
   def percent
