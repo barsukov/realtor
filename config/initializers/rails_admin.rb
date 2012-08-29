@@ -108,9 +108,14 @@ RailsAdmin.config do |config|
       label(I18n.t('common.value'))
       filterable false
     end
+    configure :company do
+      label I18n.t('company.name')
+      filterable false
+    end
     list do
       field :date
       field :value
+      field :company
     end
     create do
       field :date
