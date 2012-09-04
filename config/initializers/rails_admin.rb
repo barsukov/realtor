@@ -56,7 +56,6 @@ RailsAdmin.config do |config|
      label_plural I18n.t('static_content.static_content')
      label I18n.t('static_content.static_content')
      configure :title_table do
-       ckeditor true
        label(I18n.t('static_content.title'))
        filterable false
      end
@@ -71,7 +70,6 @@ RailsAdmin.config do |config|
      label I18n.t('static_content.text_under_table')
      label_plural I18n.t('static_content.text_under_table')
      configure :under_text do
-       ckeditor true
        label(I18n.t('static_content.text_under_table'))
        filterable false
      end
