@@ -19,7 +19,7 @@ group :assets do
   gem "twitter-bootstrap-rails"
   gem 'uglifier', '>= 1.0.3'
 end
-
+gem "ckeditor"
 gem 'jquery-rails'
 gem 'rails_admin'
 gem 'haml-rails'
