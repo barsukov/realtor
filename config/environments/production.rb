@@ -19,6 +19,7 @@ RailsAdmin::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+  config.assets.precompile += ["rails_admin/rails_admin.js", "rails_admin/rails_admin.css", "rails_admin/jquery.colorpicker.js", "rails_admin/jquery.colorpicker.css", 'ckeditor/*']
 
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
