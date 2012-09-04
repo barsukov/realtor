@@ -1,6 +1,6 @@
 RailsAdmin::Application.routes.draw do
   mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
-
+  mount Ckeditor::Engine => "/ckeditor"
   root :to => 'main#index'
 
   devise_for :admins , :skip => :registrations
