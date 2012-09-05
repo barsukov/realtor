@@ -9,6 +9,7 @@ RailsAdmin.config do |config|
 
   config.current_user_method { current_admin } # auto-generated
 
+
   # If you want to track changes on your models:
   # config.audit_with :history, Admin
 
@@ -59,6 +60,9 @@ RailsAdmin.config do |config|
        label(I18n.t('static_content.title'))
        ckeditor true
        filterable false
+       register_instance_option(:ckeditor_base_location) do
+         '/assets/ckeditor/'
+       end
      end
      list do
        field :title_table
