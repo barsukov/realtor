@@ -5,8 +5,8 @@ RailsAdmin.config do |config|
 
   # If your default_local is different from :en, uncomment the following 2 lines and set your default locale here:
    require 'i18n'
-   I18n.default_locale = :ru
 
+   I18n.default_locale = :ru
   config.current_user_method { current_admin } # auto-generated
 
 
@@ -37,6 +37,18 @@ RailsAdmin.config do |config|
   # Add models here if you want to go 'whitelist mode':
    config.included_models = [User,Company,Revenue,Price,StaticContent,UnderTableText]
 
+
+
+   config.actions do
+     dashboard
+     index
+     new
+
+
+     show
+     edit
+     delete
+   end
   # Application wide tried label methods for models' instances
   # config.label_methods << :description # Default is [:name, :title]
 
@@ -60,9 +72,6 @@ RailsAdmin.config do |config|
        label(I18n.t('static_content.title'))
        ckeditor true
        filterable false
-       register_instance_option(:ckeditor_base_location) do
-         '/assets/ckeditor/'
-       end
      end
      list do
        field :title_table
