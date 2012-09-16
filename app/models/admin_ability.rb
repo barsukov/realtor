@@ -12,6 +12,7 @@ class AdminAbility
     cannot :filters ,:all
     cannot :history, :all              # for HistoryIndex
     can :destroy, :all       # for BulkDelete
+    can :rating_calculate
   end
     # The first argument to `can` is the action you are giving the user permission to do.
     # If you pass :manage it will apply to every action. Other common actions here are

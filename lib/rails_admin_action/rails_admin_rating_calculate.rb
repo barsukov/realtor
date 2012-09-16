@@ -13,9 +13,18 @@ module RailsAdmin
           authorized?
         end
         register_instance_option :link_icon do
-          'icon-check'
+          'icon-question-sign'
         end
 
+        # Is the action on a model scope (Example: /admin/team/export)
+        register_instance_option :collection? do
+          false
+        end
+
+        # Is the action on an object scope (Example: /admin/team/1/edit)
+        register_instance_option :member? do
+          true
+        end
         register_instance_option :controller do
           Proc.new do
             @companies = Company.all

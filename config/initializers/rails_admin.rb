@@ -1,5 +1,17 @@
 # RailsAdmin config file. Generated on July 30, 2012 23:10
 # See github.com/sferik/rails_admin for more informations
+module RailsAdmin
+  module Config
+    module Actions
+      class RatingCalculate < RailsAdmin::Config::Actions::Base
+        RailsAdmin::Config::Actions.register(self)
+        register_instance_option :root do
+          true
+        end
+      end
+    end
+  end
+end
 
 RailsAdmin.config do |config|
 
@@ -19,7 +31,7 @@ RailsAdmin.config do |config|
   # Set the admin name here (optional second array element will appear in a beautiful RailsAdmin red ©)
   config.main_app_name = ['Rails Admin', 'Admin']
   # or for a dynamic name:
-  # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
+  # config.main_app_name = Proc.new { |controller| [Rails.rails_admin.engine_name.titleize, controller.params['action'].titleize] }
 
   config.authorize_with :cancan ,AdminAbility
   #  ==> Global show view settings
@@ -41,10 +53,9 @@ RailsAdmin.config do |config|
 
    config.actions do
      dashboard
+    # root :rating_calculate, :dashboard
      index
      new
-
-
      show
      edit
      delete
@@ -85,7 +96,7 @@ RailsAdmin.config do |config|
      label_plural I18n.t('static_content.text_under_table')
      configure :under_text do
        label(I18n.t('static_content.text_under_table'))
-       ckeditor true
+     #  ckeditor true
        filterable false
      end
      list do
