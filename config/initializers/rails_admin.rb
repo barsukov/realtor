@@ -53,7 +53,9 @@ RailsAdmin.config do |config|
 
    config.actions do
      dashboard
-    # root :rating_calculate, :dashboard
+     rating_calculate do
+       i18n_key :dash
+     end
      index
      new
      show

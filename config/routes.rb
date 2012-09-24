@@ -1,4 +1,6 @@
+
 RailsAdmin::Application.routes.draw do
+  match "/rails_admin/rating_calculate" => "custom_admin#rating_calculate" , :as => "rating_calculate", :via => [:get, :post]
   mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
   mount Ckeditor::Engine => "/ckeditor"
   root :to => 'main#index'

@@ -27,17 +27,27 @@ module RailsAdmin
         end
         register_instance_option :controller do
           Proc.new do
-            @companies = Company.all
-            @companies = @companies.sort_by { |h| h.percent}.reverse!
-            @companies.each_with_index  do |company,index|
-              current_index =  index + 1
-              unless (current_index == company.current_place)
-                company.last_place = company.current_place
-                company.current_place = current_index
+
+              @object = @abstract_model.new
+              @authorization_adapter && @authorization_adapter.attributes_for(:new, @abstract_model).each do |name, value|
+                @object.send("#{name}=", value)
               end
-              company.save
-            end
-            flash[:notice] = "Рейтинг был успешно обновлен "
+              if object_params = params[@abstract_model.to_param]
+                @object.set_attributes(@object.attributes.merge(object_params), _attr_accessible_role)
+              end
+
+
+            #  @companies = Company.all
+            #@companies = @companies.sort_by { |h| h.percent}.reverse!
+            #@companies.each_with_index  do |company,index|
+            #  current_index =  index + 1
+            #  unless (current_index == company.current_place)
+            #    company.last_place = company.current_place
+            #    company.current_place = current_index
+            #  end
+            #  company.save
+            #end
+            #flash[:notice] = "Рейтинг был успешно обновлен "
 
             redirect_to back_or_index
           end
