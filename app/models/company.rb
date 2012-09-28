@@ -13,11 +13,24 @@ class Company < ActiveRecord::Base
    scope :ordered_by_place , order(:current_place)
   #scope :get_all_values_by_date, lambda {|date|  joins(:revenues).where('revenues.company_id = ? AND revenues.updated_at = ?', self.id , date)}
 
+
   def percent
   sum = Revenue.get_all_values_sum(Time.now)
   current_value = Revenue.get_company_values_sum(self.id,Time.now)
     current_value.percent_of(sum)
   end
+def reset_rating
+  @companies = Company.all
+  @companies = @companies.sort_by { |h| h.percent}.reverse!
+  @companies.each_with_index  do |company,index|
+    current_index =  index + 1
+    unless (current_index == company.current_place)
+      company.last_place = company.current_place
+      company.current_place = current_index
+    end
+    company.save
+  end
+end
 end
 
 class Numeric

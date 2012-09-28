@@ -5,7 +5,7 @@ module RailsAdmin
     module Actions
       class RatingCalculate < RailsAdmin::Config::Actions::Base
         RailsAdmin::Config::Actions.register(self)
-        register_instance_option :root do
+        register_instance_option :collection do
           true
         end
       end
@@ -53,9 +53,7 @@ RailsAdmin.config do |config|
 
    config.actions do
      dashboard
-     rating_calculate do
-       i18n_key :dash
-     end
+     rating_calculate
      index
      new
      show
