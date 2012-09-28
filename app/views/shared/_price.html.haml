@@ -1,4 +1,4 @@
 %ul.nav.nav-list
   %li.nav-header
-    =link_to  I18n.t('prices.main',:updated_at =>  @price_date) ,@price.current_price.url, :class=>"btn" unless @price.nil?
+    =link_to  I18n.t('prices.main') ,@price.current_price.url, :class=>"btn" unless @price.nil?
 
