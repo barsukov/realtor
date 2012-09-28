@@ -98,7 +98,7 @@ RailsAdmin.config do |config|
      label_plural I18n.t('static_content.text_under_table')
      configure :under_text do
        label(I18n.t('static_content.text_under_table'))
-     #  ckeditor true
+       ckeditor true
        filterable false
      end
      list do
