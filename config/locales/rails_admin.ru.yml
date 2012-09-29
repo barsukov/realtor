@@ -44,6 +44,10 @@ ru:
         title: "Управление сайтом"
         menu: "Контрольная панель"
         breadcrumb: "панель"
+      rating_calculate:
+        breadcrumb: "Рейтинг"
+        menu: "Рейтинг компаний"
+        title: "Обновить рейтинг компаний"
       index:
         title: "Список %{model_label_plural}"
         menu: "Список"

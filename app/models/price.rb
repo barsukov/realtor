@@ -3,6 +3,6 @@ class Price < ActiveRecord::Base
    has_attached_file :current_price,
                      :path => ":rails_root/public/system/:attachment/:id/:filename",
                      :url => "/system/:attachment/:id/:filename"
-
-  scope :last_price , order(:updated_at).first
+   validates :date,:current_price, :presence => true
+   scope :last_price , order(:updated_at).first
 end

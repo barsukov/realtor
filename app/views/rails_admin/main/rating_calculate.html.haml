@@ -1,4 +1,14 @@
-%p
-  Hi!!!!
-  =@object
-=link_to "ogogog" ,'#'
+%table{ :class => 'table table-bordered'}
+  %thead
+    %tr
+      %th= I18n.t('common.place')
+      %th= I18n.t('company.realtor')
+      %th=I18n.t('company.value')
+  %tbody
+    - @companies.each do |company|
+      %tr
+        %td
+          =company.current_place.to_s
+          ="(#{company.last_place.to_s})"
+        %td= company.name
+        %td= number_to_percentage(company.percent, :precision => 2)

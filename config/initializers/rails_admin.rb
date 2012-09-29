@@ -1,23 +1,12 @@
 # RailsAdmin config file. Generated on July 30, 2012 23:10
 # See github.com/sferik/rails_admin for more informations
-module RailsAdmin
-  module Config
-    module Actions
-      class RatingCalculate < RailsAdmin::Config::Actions::Base
-        RailsAdmin::Config::Actions.register(self)
-        register_instance_option :collection do
-          true
-        end
-      end
-    end
-  end
-end
+
 
 RailsAdmin.config do |config|
 
   # If your default_local is different from :en, uncomment the following 2 lines and set your default locale here:
    require 'i18n'
-
+   require "rails_admin_action/rails_admin_rating_calculate"
    I18n.default_locale = :ru
   config.current_user_method { current_admin } # auto-generated
 
@@ -53,8 +42,10 @@ RailsAdmin.config do |config|
 
    config.actions do
      dashboard
-     rating_calculate
      index
+     rating_calculate do
+       only Company
+     end
      new
      show
      edit

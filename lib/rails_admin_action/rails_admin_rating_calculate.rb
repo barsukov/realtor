@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'rails_admin/config/actions'
 require 'rails_admin/config/actions/base'
 
@@ -13,7 +14,7 @@ module RailsAdmin
           authorized?
         end
         register_instance_option :link_icon do
-          'icon-question-sign'
+          'icon-refresh'
         end
 
         # Is the action on a model scope (Example: /admin/team/export)
@@ -30,12 +31,10 @@ module RailsAdmin
         end
         register_instance_option :controller do
           Proc.new do
-            report = "#{@object.class.to_s.demodulize}Report".constantize.new
-            send_data report.to_pdf(@object), :filename => "#{@object.class.to_s.demodulize}_#{@object.id}.pdf", :type => "application/pdf"
+            @abstract_model.model.reset_rating
+            flash[:success] = "Рейтинг был успешно обновлен"
+            @companies =  @abstract_model.model.ordered_by_place
           end
-        end
-         register_instance_option :link_icon do
-          'icon-home'
         end
       end
     end

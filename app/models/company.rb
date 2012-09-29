@@ -19,7 +19,7 @@ class Company < ActiveRecord::Base
   current_value = Revenue.get_company_values_sum(self.id,Time.now)
     current_value.percent_of(sum)
   end
-def reset_rating
+def self.reset_rating
   @companies = Company.all
   @companies = @companies.sort_by { |h| h.percent}.reverse!
   @companies.each_with_index  do |company,index|
