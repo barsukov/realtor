@@ -24,15 +24,15 @@ def self.reset_rating
   @companies = @companies.sort_by { |h| h.percent}.reverse!
   @companies.each_with_index  do |company,index|
     current_index =  index + 1
-    unless (current_index == company.current_place)
-      company.last_place = company.current_place
-      company.current_place = current_index
-    end
+    company.last_place = company.current_place
+    company.current_place = current_index
+    #unless (current_index == company.current_place)
+    #
+    #end
     company.save
   end
 end
 end
-
 class Numeric
   def percent_of(n)
     self.to_f / n.to_f * 100.0

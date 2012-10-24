@@ -31,8 +31,8 @@ module RailsAdmin
         end
         register_instance_option :controller do
           Proc.new do
-            @abstract_model.model.reset_rating
-            flash[:success] = "Рейтинг был успешно обновлен"
+           # @abstract_model.model.reset_rating
+          #  flash[:success] = "Рейтинг был успешно обновлен"
             @companies =  @abstract_model.model.ordered_by_place
           end
         end

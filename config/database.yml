@@ -46,11 +46,11 @@ test:
   username: realtor
   password:
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: barsukov_realt30
-  host:   postgresql2.locum.ru
-  pool: 5
-  username: barsukov_realt30
-  password: vqQJuCh2
+#production:
+#  adapter: postgresql
+#  encoding: unicode
+#  database: barsukov_realt30
+#  host:   postgresql2.locum.ru
+#  pool: 5
+#  username: barsukov_realt30
+#  password: vqQJuCh2
