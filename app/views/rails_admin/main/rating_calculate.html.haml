@@ -5,6 +5,5 @@
       %th= I18n.t('company.realtor')
       %th=I18n.t('company.value')
   %tbody
-    =link_to "Пересчитать рейтинг" ,'/rails_admin/company/rating_calculate/reset',:remote => true,:class => 'button'
     .company
       = render :partial => 'company_rating'

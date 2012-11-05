@@ -1,6 +1,5 @@
 
 RailsAdmin::Application.routes.draw do
-  match "/rails_admin/company/rating_calculate/reset" => "custom_admin#reset" , :as => "reset", :via => [:get,:post]
   mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
   mount Ckeditor::Engine => "/ckeditor"
   root :to => 'main#index'

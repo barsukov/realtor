@@ -26,9 +26,6 @@ def self.reset_rating
     current_index =  index + 1
     company.last_place = company.current_place
     company.current_place = current_index
-    #unless (current_index == company.current_place)
-    #
-    #end
     company.save
   end
 end
